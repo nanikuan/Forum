@@ -77,8 +77,9 @@ table {
 			<tr>
 				<th scope="col" style="border-radius: 10px 0px 0px 0px">Topics&nbsp;</th>
 				<th scope="col">Description&nbsp;&nbsp;</th>
-				<th scope="col">number of threads&nbsp;&nbsp;</th>
-				<th style="border-radius: 0px 10px 0px 0px">Edited date:</th>
+				<th scope="col">Number of threads&nbsp;&nbsp;</th>
+				<th scope="col">Edited date:</th>
+				<th style="border-radius: 0px 10px 0px 0px">Delete?</th>
 			</tr>
 			<tr>
 				<c:forEach var="topics" items="${listTopic}">
@@ -111,6 +112,11 @@ table {
 					<td class="date" style="width: 20%">
 						<div style="white-space: nowrap">
 							<span class="time"><c:out value="${topics.date}" /></span>
+						</div>
+					</td>
+					<td style="width: 20%">
+						<div class="categories">
+							<a href="/Forum/TopicServlet/delete?name=<c:out value='${topics.name}' />">Delete</a></td>
 						</div>
 					</td>
 			</tr>

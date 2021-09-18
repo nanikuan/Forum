@@ -29,7 +29,9 @@ public class TopicServlet extends HttpServlet {
 	private String jdbcPassword = "";
 	private static final String INSERT_TOPIC_SQL = "INSERT INTO topic" + " (name, content, number, date) VALUES "
 			+ " (?, ?, ?,?);";
-	private static final String SELECT_ALL_TOPIC = "Select * from topic";
+	private static final String SELECT_ALL_TOPIC = "Select * from topic;";
+	private static final String DELETE_TOPIC = "delete from topic where name = ?;";
+
 
 	protected Connection getConnection() {
 		Connection connection = null;
@@ -69,6 +71,9 @@ public class TopicServlet extends HttpServlet {
 			switch (action) {
 			case "/TopicServlet/update":
 				updateTopic(request, response);
+				break;
+			case "/TopicServlet/delete":
+				deleteTopic(request, response);
 				break;
 
 			default:
@@ -146,6 +151,18 @@ public class TopicServlet extends HttpServlet {
 		// redirect us back to UserServlet !note: do change the url to your project name
 		response.sendRedirect("http://localhost:8081/Forum/TopicServlet");
 	}
+	
+	private void deleteTopic(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException {
+			System.out.println("comes to deleteTopic");
+			String name = request.getParameter("name");
+			try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(DELETE_TOPIC);) {
+			statement.setString(1, name);
+			int i = statement.executeUpdate();
+			}
+			//redirect us back to UserServlet !note: do change the url to your project name
+			response.sendRedirect("http://localhost:8081/Forum/TopicServlet");
+			}
 
 	private void printSQLException(SQLException ex) {
 		for (Throwable e : ex) {
