@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Topics</title>
 <style>
 header {
 	/*Header*/
@@ -62,9 +62,12 @@ table {
 	<header>
 		<h1>OneRp</h1>
 		<nav id="login" style="width: auto;">
-			<a class="pointer">Login</a> <a href="Home.jsp" title="Home">Home</a>
-			<a href="TopicServlet" title="Home">Topics</a> <a href="threads.jsp"
-				title="Home">Threads</a>
+			<a class="pointer">Login</a>
+			<a href="Home.jsp" class="home">Home</a>
+			<a href="TopicServlet" class="topics">Topics</a>
+			<a href="threads.jsp"  class="Threads">Threads</a>
+
+
 
 
 		</nav>
@@ -88,7 +91,7 @@ table {
 					</script>
 					<td class="categories">
 						<div class="categories">
-							<a style="text-decoration: none" href="threads.php">&nbsp; <c:out
+							<a style="text-decoration: none" href="threads.php" class="thread">&nbsp; <c:out
 									value="${topics.name}" /> &nbsp;&nbsp;
 							</a>
 						</div>

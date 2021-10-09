@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Home</title>
 <style>
 header {
 	/*Header*/
@@ -35,10 +35,9 @@ header nav a {
 		<h1>OneRp</h1>
 		<nav id="login" style="width: auto;">
 			<a class="pointer">Login</a>
-			<a href="Home.jsp" title="Home">Home</a>
-			<a href="TopicServlet" title="Home">Topics</a> <a href="threads.jsp"
-				title="Home">Threads</a>
-
+			<a href="Home.jsp" class="home">Home</a>
+			<a href="TopicServlet" class="topics">Topics</a>
+			<a href="threads.jsp"  class="Threads">Threads</a>
 
 		</nav>
 	</header>
